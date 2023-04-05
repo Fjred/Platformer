@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
 
     public float jumpHeight = 3;
 
+    public LayerMask layerMask;
+
     private Rigidbody2D rb;
 
+    public SpriteRenderer sprite;
 
     public bool isOnGround = false;
     void Start()
@@ -22,9 +25,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        var hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, layerMask );
+
+        isOnGround = hit.collider != null;
+
         
-
-
 
         if (Input.GetKey(KeyCode.Space) & isOnGround)
         {
@@ -32,21 +37,26 @@ public class Player : MonoBehaviour
             rb.velocity = Vector2.up * speed;
 
             isOnGround = false;
+
         }
 
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
 
+        playerSide();
         
     }
 
-
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    void playerSide()
     {
-        isOnGround = true;
+        if (Input.GetKey(KeyCode.A))
+        {
+            sprite.flipX = true;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            sprite.flipX = false;
+        }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         isOnGround = false;
