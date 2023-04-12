@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grass
   - Coin
+  - Portal
   layers:
   - Default
   - TransparentFX
