@@ -11,7 +11,7 @@ public class Hover : MonoBehaviour
 
     private void Start()
     {
-        offset = Random.Range(0f, 100f);
+        offset = Random.Range(0f, 1f);
     }
     void Update()
     {
