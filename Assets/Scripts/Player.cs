@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer sprite;
 
+    private SpriteRenderer renderer;
+
     public bool isOnGround = false;
     void Start()
     {
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         var hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, layerMask );
+
+        var h = Input.GetAxisRaw("Horizontal");
 
         isOnGround = hit.collider != null;
 
@@ -40,27 +44,16 @@ public class Player : MonoBehaviour
 
         }
 
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(h * moveSpeed, rb.velocity.y);
 
-        playerSide();
+        if(h != 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = h < 0;
+        }
+        
         
     }
 
-    void playerSide()
-    {
-        if (Input.GetKey(KeyCode.A))
-        {
-            sprite.flipX = true;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            sprite.flipX = false;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isOnGround = false;
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
