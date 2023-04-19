@@ -1321,6 +1321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportTime: 1
   teleportTimeLeft: 0
+  nextLevel: Level 2
+  nextScene: 1
 --- !u!1001 &1817248460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6375,37 +6377,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3847869419726991672, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847869419726991672, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847869419726991672, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847869419726991672, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3847869419726991674, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
       propertyPath: m_Name
       value: Coin
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847869420297268233, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847869420297268233, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847869420297268233, guid: 77146333f5f06404f8d6eff825f92341, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77146333f5f06404f8d6eff825f92341, type: 3}

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer sprite;
 
+
     public bool isOnGround = false;
     void Start()
     {
@@ -47,8 +48,19 @@ public class Player : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = h < 0;
         }
-        
-        
+
+        if (transform.position.y <= -50)
+        {
+            transform.position = new Vector2(transform.position.x, 100);
+        }
+
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

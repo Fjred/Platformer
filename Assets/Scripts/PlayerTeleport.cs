@@ -8,6 +8,10 @@ public class PlayerTeleport : MonoBehaviour
     public float teleportTime = 1;
 
     public float teleportTimeLeft;
+
+    public string nextLevel;
+
+    public int nextScene;
     private void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -28,7 +32,7 @@ public class PlayerTeleport : MonoBehaviour
 
         if (teleportTimeLeft <= 0)
         {
-            renderer.color = Color.black;
+            SceneManager.LoadScene(nextScene);
         }
     }
 
