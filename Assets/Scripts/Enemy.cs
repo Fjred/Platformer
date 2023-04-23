@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+
     public float speed;
 
-    public float direction = 1;
+
 
     public Rigidbody2D rb;
     void Update()
     {
 
-        rb.velocity = new Vector2(speed * direction, rb.velocity.y);
+        rb.velocity = new Vector2(speed, rb.velocity.y);
     }
 
 
@@ -20,8 +22,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.transform.CompareTag("InvCol"))
         {
-            direction = -direction;
-
+            speed = -speed;
+            sprite.flipX = !sprite.flipX;
         }
     }
 }

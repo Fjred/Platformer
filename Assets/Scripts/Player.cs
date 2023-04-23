@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer sprite;
 
+    public AudioSource jump;
 
     public bool isOnGround = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
 
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
             rb.velocity = Vector2.up * speed;
 
             isOnGround = false;
+
+            jump.Play();
 
         }
 
@@ -60,7 +64,7 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(0);
         }
     }
 }

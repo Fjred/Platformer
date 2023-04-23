@@ -18,6 +18,7 @@ public class PortalActivator : MonoBehaviour
     {
         if(coin.coinsCount >= coinsToTeleport)
         {
+            
             portal.SetActive(true);
         }
     }

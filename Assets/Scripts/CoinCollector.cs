@@ -3,9 +3,7 @@ using UnityEngine;
 using TMPro;
 public class CoinCollector : MonoBehaviour
 {
-    // collide with coin
-    // increase score
-    // show TMPro UI score
+    public AudioSource coinSound;
 
     public TMP_Text coinsText;
 
@@ -24,6 +22,7 @@ public class CoinCollector : MonoBehaviour
 
             Destroy(collision.gameObject);
 
+            coinSound.Play();
         }
     }
 }

@@ -12,11 +12,20 @@ public class PlayerTeleport : MonoBehaviour
     public string nextLevel;
 
     public int nextScene;
+
+    public AudioSource teleport;
+
+    public bool newLevel = false;
     private void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
 
         teleportTimeLeft = teleportTime;
+
+        if(newLevel == true)
+        {
+            teleport.Play();
+        }
     }
 
     private void Update()
@@ -32,6 +41,8 @@ public class PlayerTeleport : MonoBehaviour
 
         if (teleportTimeLeft <= 0)
         {
+            
+
             SceneManager.LoadScene(nextScene);
         }
     }
